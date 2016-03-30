@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 4, 2016 8:35:11 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojos.User" table="user" catalog="pillreminder" optimistic-lock="version">
+        <id name="userId" type="java.lang.Integer">
+            <column name="user_id" />
+            <generator class="identity" />
+        </id>
+        <property name="firstName" type="string">
+            <column name="first_name" not-null="true" />
+        </property>
+        <property name="lastName" type="string">
+            <column name="last_name" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" not-null="true" unique="true" />
+        </property>
+        <property name="phoneNumber" type="string">
+            <column name="phone_number" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" not-null="true" />
+        </property>
+        <set name="medicines" table="medicine" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <one-to-many class="pojos.Medicine" />
+        </set>
+    </class>
+</hibernate-mapping>

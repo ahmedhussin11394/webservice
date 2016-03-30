@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://{$OPENSHIFT_MYSQL_DB_HOST}:{$OPENSHIFT_MYSQL_DB_PORT}/pillreminder</property>
+    <property name="hibernate.connection.username">adminjlVfVX1</property>
+    <property name="hibernate.connection.password">8kq_NItdJhZi</property>
+    <property name="hibernate.format_sql">true</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <mapping resource="pojos/Medicine.hbm.xml"/>
+    <mapping resource="pojos/User.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

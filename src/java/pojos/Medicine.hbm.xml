@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 4, 2016 8:35:11 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojos.Medicine" table="medicine" catalog="pillreminder" optimistic-lock="version">
+        <composite-id name="id" class="pojos.MedicineId">
+            <key-property name="medicienId" type="int">
+                <column name="medicien_id" />
+            </key-property>
+            <key-property name="userId" type="int">
+                <column name="user_id" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="user" class="pojos.User" update="false" insert="false" fetch="select">
+            <column name="user_id" not-null="true" />
+        </many-to-one>
+        <property name="medicienName" type="string">
+            <column name="medicien_name" not-null="true" />
+        </property>
+        <property name="notification" type="boolean">
+            <column name="notification" not-null="true" />
+        </property>
+        <property name="medicienDate" type="string">
+            <column name="medicien_date"  not-null="true" />
+        </property>
+        <property name="medicienTime" type="string">
+            <column name="medicien_time" />
+        </property>
+        <property name="medicienInterval" type="string">
+            <column name="medicien_interval" />
+        </property>
+        <property name="medicienAppearance" type="string">
+            <column name="medicien_appearance" />
+        </property>
+        <property name="medicienDose" type="java.lang.Integer">
+            <column name="medicien_dose" />
+        </property>
+    </class>
+</hibernate-mapping>
